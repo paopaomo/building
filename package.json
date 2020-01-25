@@ -4,6 +4,10 @@
   "description": "local building",
   "main": "index.js",
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -12,7 +16,8 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "gulp-watch": "gulp watch"
+    "gulp-watch": "gulp watch",
+    "babel": "babel src/script -d build/script"
   },
   "repository": {
     "type": "git",
@@ -23,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/paopaomo/building/issues"
   },
-  "homepage": "https://github.com/paopaomo/building#readme"
+  "homepage": "https://github.com/paopaomo/building#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
 }
