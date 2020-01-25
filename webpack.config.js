@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/script/index.js'
+        index: './src/script/index.js',
+        vendor: ['react', 'react-dom']
     },
     output: {
         path: path.resolve(__dirname, 'build/script'),
@@ -41,10 +42,17 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: '../style/[name].css'
-        }),
+        })
     ],
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    name: "vendor",
+                    chunks: "initial",
+                    minChunks: 2
+                }
+            }
+        }
     }
 };
